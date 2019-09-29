@@ -31,9 +31,14 @@
 		}
 		
 		if (isLogin) {
+			if(id.equals("aaa")){ %>
+				<META http-equiv=refresh content="0;url=admin.jsp">
+<%
+			} else {
 				session.setAttribute("id", id);
 				session.setAttribute("pw", pw);
 				response.sendRedirect("main.jsp");
+			}
 		} else { 
 		%>
 		<script>

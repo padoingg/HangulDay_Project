@@ -72,10 +72,9 @@
 					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트 참여</h2>
+							<h2>이벤트 현황</h2>
 						</header>
-						<form method="post" action="event.jsp">
-											<%
+						<%
 						request.setCharacterEncoding("utf-8");
 					
 						Connection conn = null;	
@@ -87,9 +86,7 @@
 						String user = "HANGULDAY";
 						String pass = "1234";
 						
-						String sql = "SELECT * FROM MEMBER WHERE id='"+id+"'";
-						
-						
+						String sql = "SELECT * FROM EVENT";
 						
 						try{
 							Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -98,16 +95,25 @@
 							Statement st = conn.createStatement();
 						    st.executeUpdate(sql);
 						    ResultSet rs = st.executeQuery(sql);
-						    
-						    if(rs.next()){
-						    	%>
-							이름: <input type="text" id="name" name="name" value="<%= rs.getString("name")%>" readonly="readonly"><br><br>
-								  <%
-						    } else {
-						    	%>
-						    	이름: <input type="text" id="name" name="name"><br><br>
-						    	<%
+						    %>
+						    <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
+						    	<tr>
+						    		<td>이름</td>
+						    		<td>내용</td>
+						    		<td>전화번호</td>
+						    		<td>참여일</td>		    		
+						    	</tr>
+								<tr height="30" align="center" ></tr>
+						    <%
+						    while(rs.next()){
+						    	out.print("<tr>");
+						    	out.print("<td>"+rs.getString(1)+"</td>");
+						    	out.print("<td>"+rs.getString(3)+"</td>");
+						    	out.print("<td>"+rs.getString(2)+"</td>");
+						    	out.print("<td>"+rs.getString(4)+"</td>");
+						    	out.print("</tr>");
 						    }
+						    %></table><%
 						}catch(Exception e){
 							e.getStackTrace();
 						}finally{
@@ -122,10 +128,6 @@
 						}
 						
 					%>
-							내용: <input type="text" id="content" name="content"><br><br>
-							전화번호: <input type="text" id="phone" name="phone"><br><br>
-							<input type="submit" value="참여"><br>
-						</form>
 					</div>
 				</div>
 			</section>

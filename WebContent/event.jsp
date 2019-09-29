@@ -26,8 +26,8 @@
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, name);
-		pstmt.setString(2, content);
-		pstmt.setString(3, phone);
+		pstmt.setString(3, content);
+		pstmt.setString(2, phone);
 		pstmt.executeUpdate();
 	}catch(Exception e){
 		e.printStackTrace();
