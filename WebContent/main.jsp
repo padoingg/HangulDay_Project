@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,7 +75,51 @@
 							<h2>이벤트 참여</h2>
 						</header>
 						<form method="post" action="event.jsp">
-							이름: <input type="text" id="name" name="name"><br><br>
+											<%
+						request.setCharacterEncoding("utf-8");
+					
+						Connection conn = null;	
+						PreparedStatement pstmt = null;
+						
+						String id = (String) session.getAttribute("id");
+						
+						String url = "jdbc:oracle:thin:@localhost:1521:xe";
+						String user = "HANGULDAY";
+						String pass = "1234";
+						
+						String sql = "SELECT * FROM MEMBER WHERE id='"+id+"'";
+						
+						try{
+							Class.forName("oracle.jdbc.driver.OracleDriver");
+							conn = DriverManager.getConnection(url, user, pass);
+					
+							Statement st = conn.createStatement();
+						    st.executeUpdate(sql);
+						    ResultSet rs = st.executeQuery(sql);
+						    
+						    if(rs.next()){
+						    	%>
+							이름: <input type="text" id="name" name="name" value="<%= rs.getString("name")%>" readonly="readonly"><br><br>
+								  <%
+						    } else {
+						    	%>
+						    	이름: <input type="text" id="name" name="name"><br><br>
+						    	<%
+						    }
+						}catch(Exception e){
+							e.getStackTrace();
+						}finally{
+							try{
+								if(pstmt != null)
+									pstmt.close();
+								if(conn != null)
+									conn.close();
+							}catch(Exception e){
+								e.getStackTrace();
+							}
+						}
+						
+					%>
 							내용: <input type="text" id="content" name="content"><br><br>
 							전화번호: <input type="text" id="phone" name="phone"><br><br>
 							<input type="submit" value="참여"><br>
