@@ -7,8 +7,8 @@
 	request.setCharacterEncoding("utf-8");
 
 	String name = request.getParameter("name");
-	String content = request.getParameter("content");
-	String phone = request.getParameter("phone");
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
 	Boolean success=true;
 
 	Connection conn = null;	
@@ -22,12 +22,13 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "INSERT INTO EVENT values(?,?,?,SYSDATE)";
+		String sql = "insert into member values(?,?,?)";
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, name);
-		pstmt.setString(2, content);
-		pstmt.setString(3, phone);
+		pstmt.setString(2, id);
+		pstmt.setString(3, pw);
+		
 		pstmt.executeUpdate();
 	}catch(Exception e){
 		e.printStackTrace();
@@ -39,8 +40,8 @@
 
 	if(success){
 %>
-		<script>alert("참여가 완료되었습니다!");</script>
-		<meta http-equiv = 'refresh' content = '0;url=main.jsp'>
+		<script>alert("회원 가입이 되었습니다!");</script>
+		<meta http-equiv = 'refresh' content = '0;url=login.jsp'>
 <%
 	}
 %>

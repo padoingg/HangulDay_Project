@@ -11,8 +11,30 @@
 #hg2{
 	margin: 50px;
 }
+#login{
+	border: none;
+	box-shadow: none;
+	color: #ffffff !important;
+	margin: 0px;
+}
+#logout{
+	border: none;
+	box-shadow: none;
+	color: #ffffff !important;
+	margin: 0px;
+}
 </style>
 <body class="is-preload">
+<%
+	if(session.getAttribute("id") == null) {
+%>
+<input type="button" id="login" value="로그인" onclick="location.href='login.jsp'">
+<% } else {
+%>
+	<form method="post" action="logout.jsp">
+	<input type="submit" id="logout" value="로그아웃">
+	</form>
+<% } %>
 <section id="header">
 				<header class="major">
 					<h1>바른 말 고운 말, 초성 맞추기</h1>
