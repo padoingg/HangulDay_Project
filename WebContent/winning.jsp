@@ -7,7 +7,7 @@
 	request.setCharacterEncoding("utf-8");
 
 	String name = request.getParameter("name");
-	String content = request.getParameter("content");
+	//String phone = request.getParameter("phone");
 	
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
@@ -24,7 +24,7 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "UPDATE EVENT SET WINNING='O' WHERE name='"+name+"'AND content='"+content+"'";
+		String sql = "UPDATE EVENT SET WINNING='O' WHERE name='"+name+"'";
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.executeUpdate();
