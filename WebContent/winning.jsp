@@ -8,7 +8,9 @@
 
 	String name = request.getParameter("name");
 	String content = request.getParameter("content");
-	String phone = request.getParameter("phone");
+	
+	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
 	Boolean success=true;
 
 	Connection conn = null;	
@@ -22,12 +24,9 @@
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		conn = DriverManager.getConnection(url, user, pass);
 		
-		String sql = "INSERT INTO EVENT values(?,?,?,SYSDATE,'X')";
+		String sql = "UPDATE EVENT SET WINNING='O' WHERE name='"+name+"'AND content='"+content+"'";
 		
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, name);
-		pstmt.setString(3, content);
-		pstmt.setString(2, phone);
 		pstmt.executeUpdate();
 	}catch(Exception e){
 		e.printStackTrace();
@@ -39,8 +38,8 @@
 
 	if(success){
 %>
-		<script>alert("참여가 완료되었습니다!");</script>
-		<meta http-equiv = 'refresh' content = '0;url=main.jsp'>
+		<script>alert("당첨을 완료하였습니다.");</script>
+		<meta http-equiv = 'refresh' content = '0;url=admin.jsp'>
 <%
 	}
 %>

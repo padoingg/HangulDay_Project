@@ -24,18 +24,14 @@
 	color: #ffffff !important;
 	margin: 0px;
 }
+#winnig{
+	font-size: 6px;
+}
 </style>
 <body class="is-preload">
-<%
-	if(session.getAttribute("id") == null) {
-%>
-<input type="button" id="login" value="로그인" onclick="location.href='login.jsp'">
-<% } else {
-%>
 	<form method="post" action="logout.jsp">
-	<input type="submit" id="logout" value="로그아웃">
+	<input type="submit" id="logout" value="로그아웃" onclick="location.href='main.jsp'">
 	</form>
-<% } %>
 <section id="header">
 				<header class="major">
 					<h1>바른 말 고운 말, 초성 맞추기</h1>
@@ -43,31 +39,13 @@
 				</header>
 				<div class="container">
 					<ul class="actions special">
-						<li><a href="#one" class="button primary scrolly">이벤트 안내</a></li>
+						<li><a href="#one" class="button primary scrolly">관리자 페이지</a></li>
 					</ul>
 				</div>
 			</section>
 
 		<!-- One -->
 			<section id="one" class="main special">
-				<div class="container">
-					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>[ㄱ, ㄷ, ㅁ, ㅇ, ㅈ, ㅎ]</h2>
-						</header>
-						<img id="hg2" src="images/hg2.jpg" alt="" width="300px" height="200"/><br>
-						<p>
-						주어진 초성으로 자신만의 문장을 완성시켜주세요.<br>
-						예) 멋진 한글들, 만두가 좋아 ... (글자수, 중복 제한 없음)<br>
-						이벤트에 참여하신 분들 중 3분을 선정하여 선물을 드립니다.
-						</p>
-					</div>
-				</div>
-			</section>
-
-		<!-- Two -->
-			<section id="two" class="main special">
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
@@ -100,8 +78,9 @@
 						    	<tr>
 						    		<td>이름</td>
 						    		<td>내용</td>
-						    		<td>전화번호</td>
-						    		<td>참여일</td>		    		
+						    		<td width="80px">참여일</td>
+						    		<td width="60px">당첨여부</td>			    
+						    		<td width="80px">선택</td>		
 						    	</tr>
 								<tr height="30" align="center" ></tr>
 						    <%
@@ -109,8 +88,13 @@
 						    	out.print("<tr>");
 						    	out.print("<td>"+rs.getString(1)+"</td>");
 						    	out.print("<td>"+rs.getString(3)+"</td>");
-						    	out.print("<td>"+rs.getString(2)+"</td>");
 						    	out.print("<td>"+rs.getString(4)+"</td>");
+						    	out.print("<td>"+rs.getString(5)+"</td>");
+						    	String name = rs.getString(1);
+						    	String content = rs.getString(3);
+						    	%>
+						    	<td width="80px"><input type="button" id="winning" value="당첨" onclick="location.href='winning.jsp?name=<%=name%>&content=<%=content%>'"></td>
+						    	<%
 						    	out.print("</tr>");
 						    }
 						    %></table><%

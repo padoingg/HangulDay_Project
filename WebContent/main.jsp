@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <style>
+
 #hg2{
 	margin: 50px;
 }
@@ -82,6 +83,7 @@
 						PreparedStatement pstmt = null;
 						
 						String id = (String) session.getAttribute("id");
+						String name = (String) session.getAttribute("name");
 						
 						String url = "jdbc:oracle:thin:@localhost:1521:xe";
 						String user = "HANGULDAY";
@@ -102,10 +104,17 @@
 						    if(rs.next()){
 						    	%>
 							이름: <input type="text" id="name" name="name" value="<%= rs.getString("name")%>" readonly="readonly"><br><br>
+							내용: <input type="text" id="content" name="content"><br><br>
+							전화번호: <input type="text" id="phone" name="phone"><br><br>
+							<input type="submit" value="참여"><br><br>
+							<input type="button" id="winning" value="당첨확인" onclick="location.href='winningCheck.jsp'">
 								  <%
 						    } else {
 						    	%>
 						    	이름: <input type="text" id="name" name="name"><br><br>
+						    	내용: <input type="text" id="content" name="content"><br><br>
+							전화번호: <input type="text" id="phone" name="phone"><br><br>
+							<input type="button" value="참여" onclick="nono()"><br><br>
 						    	<%
 						    }
 						}catch(Exception e){
@@ -121,15 +130,16 @@
 							}
 						}
 						
-					%>
-							내용: <input type="text" id="content" name="content"><br><br>
-							전화번호: <input type="text" id="phone" name="phone"><br><br>
-							<input type="submit" value="참여"><br>
+					%>	
 						</form>
 					</div>
 				</div>
 			</section>
-			
+			<script>
+			function nono(){
+				alert("로그인이 필요합니다.");
+			}
+			</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
