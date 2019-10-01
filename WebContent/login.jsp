@@ -18,6 +18,7 @@
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
+						<h2>로그인</h2>
 						<form method="post" action="loginProc.jsp">
 							아이디: <input type="text" id="id" name="id"><br><br>
 							비밀번호: <input type="text" id="pw" name="pw"><br><br>

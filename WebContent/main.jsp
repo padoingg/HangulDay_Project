@@ -39,7 +39,7 @@
 <% } %>
 <section id="header">
 				<header class="major">
-					<h1>아름다운 우리 말, 한글</h1>
+					<h1>한글날 이벤트</h1>
 					<p>10월 2일부터 10월 9일까지</p>
 				</header>
 				<div class="container">
@@ -55,9 +55,9 @@
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트, 하나</h2>
+							<h2>이벤트 하나</h2>
 						</header>
-						<img id="hg2" src="images/hg2.jpg" alt="" width="300px" height="200"/><br>
+						<img id="hg2" src="images/hg2.jpg" alt="" width="300px" height="230"/><br>
 						<p>
 						[ㄱ, ㄷ, ㅁ, ㅇ, ㅈ, ㅎ]<br>
 						주어진 초성으로 자신만의 문장을 완성시켜주세요.<br>
@@ -134,7 +134,7 @@
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트, 둘</h2>
+							<h2>이벤트 둘</h2>
 						</header>
 						<p>
 						알쏭달쏭 헷갈리는 맞춤법 퀴즈<br>

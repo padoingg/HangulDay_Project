@@ -68,26 +68,28 @@
 	
 	if(success){
 %>
-		<script>alert("완료.");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'>
 <%
 	}
 
 	
 	if(score==5){
-		%> <script>alert("5점");</script>
+		%> <script>alert("5점! 당신을 맞춤법의 왕으로 임명합니다^^ ㅎ ");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
 	} else if(score==4){
-		%> <script>alert("4점");</script>
+		%> <script>alert("4점! 아쉬워요ㅜ 좀 더 노력하면 당신도 맞춤법 왕 ㅎ ㅎ..");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
 	} else if(score==3){
-		%> <script>alert("3점");</script>
+		%> <script>alert("3점! 더 노력 하세요~");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
 	} else if(score==2){
-		%> <script>alert("2점");</script>
+		%> <script>alert("2점! 분발 하세요");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
 	} else if(score==1){
-		%> <script>alert("1점");</script>
+		%> <script>alert("1점! 열심히 공부 하세요~");</script>
+		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
+	} else if(score==0){
+		%> <script>alert("빵점! 당신 한국인 맞나여. .. ");</script>
 		<meta http-equiv = 'refresh' content = '0;url=main.jsp'><%
 	}
 

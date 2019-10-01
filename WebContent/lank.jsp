@@ -64,7 +64,7 @@
 						String user = "HANGULDAY";
 						String pass = "1234";
 						
-						String sql = "SELECT * FROM EVENT2 ORDER BY SCORE";
+						String sql = "SELECT * FROM EVENT2 ORDER BY SCORE DESC";
 						
 						try{
 							Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -84,7 +84,7 @@
 						    while(rs.next()){
 						    	out.print("<tr>");
 						    	out.print("<td>"+rs.getString(1)+"</td>");
-						    	out.print("<td>"+rs.getString(2)+"</td>");
+						    	out.print("<td>"+rs.getString(2)+"점</td>");
 						    	out.print("</tr>");
 						    }
 						    %></table><%

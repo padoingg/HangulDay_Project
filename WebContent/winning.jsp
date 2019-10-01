@@ -38,7 +38,7 @@
 
 	if(success){
 %>
-		<script>alert("당첨을 완료하였습니다.");</script>
+		<script>alert("당첨자를 선정하였습니다.");</script>
 		<meta http-equiv = 'refresh' content = '0;url=admin.jsp'>
 <%
 	}

@@ -34,7 +34,7 @@
 	</form>
 <section id="header">
 				<header class="major">
-					<h1>아름다운 우리 말, 한글</h1>
+					<h1>한글날 이벤트</h1>
 					<p>10월 2일부터 10월 9일까지</p>
 				</header>
 				<div class="container">
@@ -50,7 +50,7 @@
 					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트, 하나</h2>
+							<h2>이벤트 하나</h2>
 						</header>
 						<%
 						request.setCharacterEncoding("utf-8");
@@ -122,7 +122,7 @@
 					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트, 둘</h2>
+							<h2>이벤트 둘</h2>
 						</header>
 			<%
 			try{
@@ -146,7 +146,7 @@
 						    while(rs2.next()){
 						    	out.print("<tr>");
 						    	out.print("<td>"+rs2.getString(1)+"</td>");
-						    	out.print("<td>"+rs2.getString(2)+"</td>");
+						    	out.print("<td>"+rs2.getString(2)+"점</td>");
 						    	out.print("<td>"+rs2.getString(3)+"</td>");
 						    	String name = rs2.getString(1);
 						    	String score = rs2.getString(2);

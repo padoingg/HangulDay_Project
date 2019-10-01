@@ -18,6 +18,7 @@
 				<div class="container">
 					<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 					<div class="content">
+						<h2>회원가입</h2>
 						<form action="signupProc.jsp" method="post">
 							이름: <input type="text" name="name" size="10"><br><br>
 							아이디: <input type="text" name="id" size="10"><br><br>

@@ -48,13 +48,29 @@
 					<p><%
 					if(rs.next()){
 			String winning = rs.getString(5);
-			out.print(winning);
 			if(winning.equals("O")){
-				out.print("당첨되셨습니다!");
-			} else {
-				out.print("당첨되지않으셨습니다.");
+				%>
+				<img id="win" src="images/win.jpg" alt="" width="300px" height="300px"/><br>
+				<h3>이벤트에 당첨되셨습니다!</h3>
+				<p>빠른 시일 내에 개인 연락처로 연락 드려<br>선물을 보내드리도록 하겠습니다~</p>
+				<%
+				//out.print("이벤트에 당첨되셨습니다!");
+			} else if(winning.equals("X")){
+				%>
+				<img id="lose" src="images/lose.png" alt="" width="300px" height="300px"/><br>
+				<h3>이벤트에 당첨되지 않았습니다.</h3>
+				<p>다음 기회에 도전해봐요~</p>
+				<%
+				//out.print("이벤트에 당첨되지 않으셨습니다ㅜㅜ");
 			}
-		}%>
+		} else {
+			%>
+			<script>alert("이벤트에 참여하세요.");</script>
+			<meta http-equiv = 'refresh' content = '0;url=main.jsp'>
+			<%
+		}
+ 		
+		%>
 					</p>
 					</div>
 				</div>
