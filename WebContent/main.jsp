@@ -139,7 +139,6 @@
 						<p>
 						알쏭달쏭 헷갈리는 맞춤법 퀴즈<br>
 						다음 문장의 단어 중 표준어를 선택해 문장을 완성해주세요.<br>
-						많이 맞추신 분들께 추첨을 통해 선물을 드립니다.<br>
 						</p>
 						<br>
 						<form action="quiz.jsp" method="post">
@@ -213,6 +212,7 @@
 						
 					%>	
 					        <input type="submit" value="완료">
+					        <input type="button" value="순위보기" onclick="location.href='lank.jsp'">
 					      </form>
 					</div>
 				</div>

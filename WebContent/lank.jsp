@@ -39,7 +39,7 @@
 				</header>
 				<div class="container">
 					<ul class="actions special">
-						<li><a href="#one" class="button primary scrolly">관리자 페이지</a></li>
+						<li><a href="#one" class="button primary scrolly">맞춤법 이벤트</a></li>
 					</ul>
 				</div>
 			</section>
@@ -50,7 +50,7 @@
 					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
 					<div class="content">
 						<header class="major">
-							<h2>이벤트, 하나</h2>
+							<h2>퀴즈 순위</h2>
 						</header>
 						<%
 						request.setCharacterEncoding("utf-8");
@@ -64,7 +64,7 @@
 						String user = "HANGULDAY";
 						String pass = "1234";
 						
-						String sql = "SELECT * FROM EVENT";
+						String sql = "SELECT * FROM EVENT2 ORDER BY SCORE";
 						
 						try{
 							Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -77,24 +77,14 @@
 						    <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
 						    	<tr>
 						    		<td>이름</td>
-						    		<td>내용</td>
-						    		<td width="80px">참여일</td>
-						    		<td width="60px">당첨여부</td>			    
-						    		<td width="80px">선택</td>		
+						    		<td>점수</td>	
 						    	</tr>
 								<tr height="30" align="center" ></tr>
 						    <%
 						    while(rs.next()){
 						    	out.print("<tr>");
 						    	out.print("<td>"+rs.getString(1)+"</td>");
-						    	out.print("<td>"+rs.getString(3)+"</td>");
-						    	out.print("<td>"+rs.getString(4)+"</td>");
-						    	out.print("<td>"+rs.getString(5)+"</td>");
-						    	String name = rs.getString(1);
-						    	String content = rs.getString(3);
-						    	%>
-						    	<td width="80px"><input type="button" id="winning" value="당첨" onclick="location.href='winning.jsp?name=<%=name%>&content=<%=content%>'"></td>
-						    	<%
+						    	out.print("<td>"+rs.getString(2)+"</td>");
 						    	out.print("</tr>");
 						    }
 						    %></table><%
@@ -115,58 +105,6 @@
 					</div>
 				</div>
 			</section>
-			
-			<!-- One -->
-			<section id="two" class="main special">
-				<div class="container">
-					<span class="image fit primary"><img src="images/pic02.jpg" alt="" /></span>
-					<div class="content">
-						<header class="major">
-							<h2>이벤트, 둘</h2>
-						</header>
-			<%
-			try{
-							Class.forName("oracle.jdbc.driver.OracleDriver");
-							conn = DriverManager.getConnection(url, user, pass);
-							
-							String sql2 = "SELECT * FROM EVENT2";
-					
-							Statement st2 = conn.createStatement();
-						    st2.executeUpdate(sql2);
-						    ResultSet rs2 = st2.executeQuery(sql2);
-						    %>
-						    <table align="center" width="100%" cellpadding="0" cellspacing="0" border="0">
-						    	<tr>
-						    		<td>이름</td>
-						    		<td>점수</td>
-						    		<td width="80px">참여일</td>		
-						    	</tr>
-								<tr height="30" align="center" ></tr>
-						    <%
-						    while(rs2.next()){
-						    	out.print("<tr>");
-						    	out.print("<td>"+rs2.getString(1)+"</td>");
-						    	out.print("<td>"+rs2.getString(2)+"</td>");
-						    	out.print("<td>"+rs2.getString(3)+"</td>");
-						    	String name = rs2.getString(1);
-						    	String score = rs2.getString(2);
-						    	out.print("</tr>");
-						    }
-						    %></table><%
-						}catch(Exception e){
-							e.getStackTrace();
-						}finally{
-							try{
-								if(pstmt != null)
-									pstmt.close();
-								if(conn != null)
-									conn.close();
-							}catch(Exception e){
-								e.getStackTrace();
-							}
-						}
-						
-					%>
 			
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
